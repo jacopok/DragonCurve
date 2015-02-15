@@ -41,4 +41,5 @@ def creastringa(n):
 
 n = input("Quanti numeri vuoi calcolare?\n")
 creastringa(n)
-print("Cose!")
+print("Cose!^2")
+
