@@ -44,22 +44,23 @@ def creastringa(n):
 n = input("Quanti numeri vuoi calcolare?\n")
 creastringa(n)
 
-
-img = Image.new( 'RGB', (255,255), "black") # create a new black image
+img = Image.new( 'RGB', (255,255), "white") # create a new white image
 pixels = img.load() # create the pixel map
-
-
 x = img.size[0] / 2
 y = img.size[1] / 2
+length = 5
+width = 1
 
-for i in range(x, x+5):    # for every pixel:
-    for j in range(y):
-        pixels[i,j] = (i, j, 100) # set the colour accordingly
+while n>0:
+    n -= 1
 
 
-print(x)
-print(y)
-#draw.line((x, x+5, y, y), fill=rgb(255,0,0))
+
+def line(x, y, length, width)
+    for i in range(x, x+length, 1):
+            for j in range(y, y+width, 1):
+                pixels[i,j] = (i, j, 100) # set the colour accordingly
+
 
 
 img.save("out.png", "PNG")
