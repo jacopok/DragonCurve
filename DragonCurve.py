@@ -48,19 +48,29 @@ img = Image.new( 'RGB', (255,255), "white") # create a new white image
 pixels = img.load() # create the pixel map
 x = img.size[0] / 2
 y = img.size[1] / 2
-length = 5
-width = 1
 
 while n>0:
+    line(x, y, 5, 1, int(stringa[n])
     n -= 1
 
-
-
-def line(x, y, length, width)
-    for i in range(x, x+length, 1):
+def line(x, y, length, width, direction):
+    if direction = 0:
+        for i in range(x, x-length, 1):
             for j in range(y, y+width, 1):
-                pixels[i,j] = (i, j, 100) # set the colour accordingly
-
-
+                pixels[i,j] = (100, 100, 100)
+    elif direction = 1:
+        for i in range(x, x+width, 1):
+            for j in range(y, y+length, 1):
+                pixels[i,j] = (100, 100, 100)
+    elif direction = 2:
+        for i in range(x, x+length, 1):
+            for j in range(y, y+width, 1):
+                pixels[i,j] = (100, 100, 100)
+    elif direction = 3:
+        for i in range(x, x+width, 1):
+            for j in range(y, y-length, 1):
+                pixels[i,j] = (100, 100, 100)
+    else
+        print("direzione non valida!")
 
 img.save("out.png", "PNG")
