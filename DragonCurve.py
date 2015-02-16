@@ -24,7 +24,7 @@
 import math
 import Image, ImageDraw
 from random import randint as rint
-img = Image.new( 'RGB', (1000,1000), "white") # create a new white image
+img = Image.new( 'RGB', (1300,650), "white") # create a new white image
 draw = ImageDraw.Draw(img)
 
 def compute(n):
@@ -84,5 +84,6 @@ while n > 0:
     elif k == 3:
         y -= length
     n = n-1
+    #Cycle to draw n lines
 
 img.show("out.png", "PNG")
