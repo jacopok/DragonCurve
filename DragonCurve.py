@@ -25,38 +25,31 @@ import math
 import Image, ImageDraw
 from random import randint as rint
 
-lista = []
-
 def calcola(n):
     if n == 0:
         return 0
     else:
-        l = pow(2, math.floor(math.log(n,2))+1) - n - 1
-        lista.append((calcola(l) + 1)%4)		
+        l = pow(2, math.floor(math.log(n,2))+1) - n - 1	
         return (calcola(l) + 1)%4
 
 def creastringa(n):
     stringa = ''
     for i in range(0, n):
         stringa += str(calcola(i))
-    print(stringa)
 
 n = input("Quanti numeri vuoi calcolare?\n")
 creastringa(n)
 
-def randgradient():
-    img = Image.new("RGB", (300,300), "#FFFFFF")
-    draw = ImageDraw.Draw(img)
 
-    r,g,b = rint(0,255), rint(0,255), rint(0,255)
-    dr = (rint(0,255) - r)/300.
-    dg = (rint(0,255) - g)/300.
-    db = (rint(0,255) - b)/300.
-    for i in range(300):
-        r,g,b = r+dr, g+dg, b+db
-        draw.line((i,0,i,300), fill=(int(r),int(g),int(b)))
+img = Image.new( 'RGB', (255,255), "black") # create a new black image
+pixels = img.load() # create the pixel map
 
-    img.save("out.png", "PNG")
+""" 
+for i in range(img.size[0]):    # for every pixel:
+    for j in range(img.size[1]):
+        pixels[i,j] = (i, j, 100) # set the colour accordingly
+"""
 
-if __name__ == "__main__":
-    randgradient()
+
+
+img.save("out.png", "PNG")
