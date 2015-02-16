@@ -40,6 +40,7 @@ def creastringa(n):
     for i in range(0, n):
         stringa += str(calcola(i))
         #Create the string 01212321...
+    return stringa
 
 def line(x, y, length, width, direction):
     if direction == 0:
@@ -63,7 +64,7 @@ def line(x, y, length, width, direction):
 
 
 n = int(input("Quanti numeri vuoi calcolare?\n"))
-creastringa(n)
+stringa = creastringa(n)
 
 img = Image.new( 'RGB', (255,255), "white") # create a new white image
 pixels = img.load() # create the pixel map
@@ -71,7 +72,18 @@ x = img.size[0] / 2
 y = img.size[1] / 2
 
 while n > 0:
-    line(x, y, 5, 1, int(stringa[n]))
+    length = 5
+    width = 1
+    k = int(stringa[n-1])
+    line(x, y, length, width, k)
+    if k == 0:
+        x -= length
+    elif k == 1:
+        y += length
+    elif k == 2:
+        x += length
+    elif k == 3:
+        y -= length
     n = n-1
 
 img.save("out.png", "PNG")
