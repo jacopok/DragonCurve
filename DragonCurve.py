@@ -49,10 +49,10 @@ def line(x, y, length, width, direction):
                 pixels[i,j] = (100, 100, 100)
     elif direction == 1:
         for i in range(x, x+width, 1):
-            for j in range(y, y+length, 1):
+            for j in range(y, y+length+1, 1):
                 pixels[i,j] = (100, 100, 100)
     elif direction == 2:
-        for i in range(x, x+length, 1):
+        for i in range(x, x+length+1, 1):
             for j in range(y, y+width, 1):
                 pixels[i,j] = (100, 100, 100)
     elif direction == 3:
@@ -87,3 +87,4 @@ while n > 0:
     #Cycle to draw n lines
 
 img.show("out.png", "PNG")
+img.save("out.png", "PNG")
