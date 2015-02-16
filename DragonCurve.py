@@ -41,6 +41,27 @@ def creastringa(n):
         stringa += str(calcola(i))
         #Create the string 01212321...
 
+def line(x, y, length, width, direction):
+    if direction == 0:
+        for i in range(x, x-length, 1):
+            for j in range(y, y+width, 1):
+                pixels[i,j] = (100, 100, 100)
+    elif direction == 1:
+        for i in range(x, x+width, 1):
+            for j in range(y, y+length, 1):
+                pixels[i,j] = (100, 100, 100)
+    elif direction == 2:
+        for i in range(x, x+length, 1):
+            for j in range(y, y+width, 1):
+                pixels[i,j] = (100, 100, 100)
+    elif direction == 3:
+        for i in range(x, x+width, 1):
+            for j in range(y, y-length, 1):
+                pixels[i,j] = (100, 100, 100)
+    else:
+        print("Invalid direction!")
+
+
 n = int(input("Quanti numeri vuoi calcolare?\n"))
 creastringa(n)
 
@@ -50,27 +71,7 @@ x = img.size[0] / 2
 y = img.size[1] / 2
 
 while n > 0:
-    line(x, y, 5, 1, int(stringa[n])
+    line(x, y, 5, 1, int(stringa[n]))
     n = n-1
-
-def line(x, y, length, width, direction):
-    if direction = 0:
-        for i in range(x, x-length, 1):
-            for j in range(y, y+width, 1):
-                pixels[i,j] = (100, 100, 100)
-    elif direction = 1:
-        for i in range(x, x+width, 1):
-            for j in range(y, y+length, 1):
-                pixels[i,j] = (100, 100, 100)
-    elif direction = 2:
-        for i in range(x, x+length, 1):
-            for j in range(y, y+width, 1):
-                pixels[i,j] = (100, 100, 100)
-    elif direction = 3:
-        for i in range(x, x+width, 1):
-            for j in range(y, y-length, 1):
-                pixels[i,j] = (100, 100, 100)
-    else:
-        print("Invalid direction!")
 
 img.save("out.png", "PNG")
